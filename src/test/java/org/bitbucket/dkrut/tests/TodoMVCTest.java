@@ -32,13 +32,13 @@ public class TodoMVCTest {
 
     @Test
     public void testAddFewTodo(){
-        t.newTodo("first", "second");
+        t.newTodo(2);
         t.todoList.shouldHave(size(2));
     }
 
     @Test
     public void testOneCompletedTask(){
-        t.newTodo("Active", "Completed");
+        t.newTodo(2);
         t.clickCheckboxSecondLineTodo();
         t.todoList.shouldHave(size(2));
         t.todoListCompleted.shouldHave(size(1));
@@ -47,7 +47,7 @@ public class TodoMVCTest {
 
     @Test
     public void testCheckAllTaskCompleted(){
-        t.newTodo("Completed 1", "Completed 2");
+        t.newTodo(2);
         t.clickToggleAllCompleted();
         t.checkboxFirstLineTodo.shouldHave(attribute("checked", "true"));
         t.checkboxSecondLineTodo.shouldHave(attribute("checked", "true"));
@@ -55,14 +55,14 @@ public class TodoMVCTest {
 
     @Test
     public void testChooseActiveTasks(){
-        t.newTodo("Active 1", "Active 2");
+        t.newTodo(2);
         t.clickButtonActive();
         t.todoList.shouldHave(size(2));
     }
 
     @Test
     public void testChooseCompletedTasks(){
-        t.newTodo("It will be completed 1", "It will be completed 2");
+        t.newTodo(2);
         t.clickCheckboxFirstLineTodo();
         t.clickCheckboxFirstLineTodo();
         t.clickButtonCompleted();
@@ -71,7 +71,7 @@ public class TodoMVCTest {
 
     @Test
     public void testActiveTasksLeft(){
-        t.newTodo("New 1", "New 2", "New 3");
+        t.newTodo(3);
         t.clickCheckboxFirstLineTodo();
         t.clickCheckboxThirdLineTodo();
         t.todoCount.shouldHave(attribute("innerText", "1 item left"));
@@ -79,33 +79,33 @@ public class TodoMVCTest {
 
     @Test
     public void testEditTask(){
-        t.newTodo("New task");
+        t.newTodo(1);
         t.firstLineTodo.doubleClick().find(t.editFirstLineTodo).setValue("Edited task").pressEnter();
         t.firstLineTodo.shouldHave(text("Edited task"));
     }
 
     @Test
     public void testDeleteTask(){
-        t.newTodo("New task", "This task will be deleted");
+        t.newTodo(2);
         t.secondLineTodo.hover().find(t.deleteButtonSecondLineTodo).click();
         t.todoList.shouldHave(size(1));
     }
 
     @Test
     public void testSorting(){
-        t.newTodo("First", "Second", "Third");
-        t.firstLineTodo.shouldHave(text("First"));
-        t.secondLineTodo.shouldHave(text("Second"));
-        t.thirdLineTodo.shouldHave(text("Third"));
+        t.newTodo(3);
+        t.firstLineTodo.shouldHave(text("New ToDo 1"));
+        t.secondLineTodo.shouldHave(text("New ToDo 2"));
+        t.thirdLineTodo.shouldHave(text("New ToDo 3"));
     }
 
     @Test
     public void testButtonClearAllCompleted(){
-        t.newTodo("New task", "New task 2");
+        t.newTodo(2);
         t.clickCheckboxSecondLineTodo();
         t.clickClearCopmleted();
         t.todoList.shouldHave(size(1));
-        t.firstLineTodo.shouldHave(text("New task"));
+        t.firstLineTodo.shouldHave(text("New ToDo 1"));
     }
 
     @Test

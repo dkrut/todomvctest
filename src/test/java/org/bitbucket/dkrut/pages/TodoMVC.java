@@ -36,19 +36,9 @@ public class TodoMVC {
     public By editThirdLineTodo = cssSelector(".todo-list li:nth-child(3) .edit");
     public SelenideElement todoCount = $(".todo-count");
 
-    public void newTodo(String value){
-        newTodo.setValue(value).pressEnter();
-    }
-
-    public void newTodo(String value1, String value2){
-        newTodo.setValue(value1).pressEnter();
-        newTodo.setValue(value2).pressEnter();
-    }
-
-    public void newTodo(String value1, String value2, String value3){
-        newTodo.setValue(value1).pressEnter();
-        newTodo.setValue(value2).pressEnter();
-        newTodo.setValue(value3).pressEnter();
+    public void newTodo(Integer numberOfTodo){
+        int i;
+        for (i = 1; i <= numberOfTodo; i++) newTodo.setValue("New ToDo " + i).pressEnter();
     }
 
     public void clickCheckboxFirstLineTodo(){
