@@ -1,4 +1,4 @@
-package org.bitbucket.dkrut;
+package org.bitbucket.dkrut.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
@@ -18,7 +18,7 @@ public class TodoMVCTest {
     @Before
     public void setUp(){
         Configuration.browser = "chrome";
-//        Configuration.reportsFolder = "target/reports/screenshots";
+        Configuration.reportsFolder = "target/reports/screenshots";
         open("http://todomvc.com/examples/backbone/");
     }
 
@@ -98,6 +98,4 @@ public class TodoMVCTest {
     public void testPlaceholderText(){
         newtodo.shouldHave(attribute("placeholder","What needs to be done?"));
     }
-
-
 }
