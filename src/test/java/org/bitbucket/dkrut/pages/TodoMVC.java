@@ -13,15 +13,15 @@ import static org.openqa.selenium.By.cssSelector;
  */
 
 public class TodoMVC {
-    SelenideElement header = $(".header h1");
-    SelenideElement newTodo = $(".new-todo");
+    public SelenideElement header = $(".header h1");
+    public SelenideElement newTodo = $(".new-todo");
     public ElementsCollection todoList = $$(".todo-list li");
     public ElementsCollection todoListCompleted = $$(".todo-list li.completed");
     SelenideElement toggleAllCompleted =  $(By.xpath("//input[@class=\"toggle-all\"]"));
     SelenideElement buttonAll = $("[href=\"\\#\\/\"]");
     SelenideElement buttonActive = $("[href=\"\\#\\/active\"]");
     SelenideElement buttonCompleted = $("[href=\"\\#\\/completed\"]");
-    SelenideElement buttonClearCompleted = $(".clear-completed0");
+    public SelenideElement buttonClearCompleted = $(".clear-completed");
     public SelenideElement firstLineTodo = $(".todo-list li:nth-child(1)");
     public SelenideElement secondLineTodo = $(".todo-list li:nth-child(2)");
     public SelenideElement thirdLineTodo = $(".todo-list li:nth-child(3)");
@@ -73,5 +73,9 @@ public class TodoMVC {
 
     public void clickButtonCompleted(){
         buttonCompleted.click();
+    }
+
+    public void clickClearCopmleted(){
+        buttonClearCompleted.click();
     }
 }
