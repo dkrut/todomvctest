@@ -1,15 +1,13 @@
 package org.bitbucket.dkrut.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.bitbucket.dkrut.pages.TodoMVC;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -18,7 +16,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TodoMVCTest {
     private TodoMVC t;
-    SelenideElement newtodoo = $(".new-todo");
 
     @Before
     public void setUp(){
@@ -95,7 +92,34 @@ public class TodoMVCTest {
     }
 
     @Test
+    public void testSorting(){
+        t.newTodo("First", "Second", "Third");
+        t.firstLineTodo.shouldHave(text("First"));
+        t.secondLineTodo.shouldHave(text("Second"));
+        t.thirdLineTodo.shouldHave(text("Third"));
+    }
+
+    @Test
+    public void testButtonClearAllCompleted(){
+        t.newTodo("New task", "New task 2");
+        t.clickCheckboxSecondLineTodo();
+        t.clickClearCopmleted();
+        t.todoList.shouldHave(size(1));
+        t.firstLineTodo.shouldHave(text("New task"));
+    }
+
+    @Test
+    public void testUnvisibleClearAll(){
+        t.buttonClearCompleted.shouldNot(visible);
+    }
+
+    @Test
     public void testPlaceholderText(){
-        newtodoo.shouldHave(attribute("placeholder","What needs to be done?"));
+        t.newTodo.shouldHave(attribute("placeholder","What needs to be done?"));
+    }
+
+    @Test
+    public void testHeader(){
+        t.header.shouldHave(text("todos"));
     }
 }
