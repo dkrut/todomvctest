@@ -8,7 +8,8 @@ import org.junit.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
+import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Created by Denis Krutikov on 24.03.2018.
@@ -32,8 +33,9 @@ public class TodoMVCTest {
 
     @Test
     public void testAddFewTodo(){
-        t.newTodo(2);
-        t.todoList.shouldHave(size(2));
+        int todo = 2;
+        t.newTodo(todo);
+        t.todoList.shouldHave(size(todo));
     }
 
     @Test
@@ -55,9 +57,10 @@ public class TodoMVCTest {
 
     @Test
     public void testChooseActiveTasks(){
-        t.newTodo(2);
+        int todo = 2;
+        t.newTodo(todo);
         t.clickButtonActive();
-        t.todoList.shouldHave(size(2));
+        t.todoList.shouldHave(size(todo));
     }
 
     @Test
