@@ -69,7 +69,7 @@ public class TestEditTodo {
     public void testHideControlsWhileEditing(){
         t.newTodo(1);
         t.lineTodo(1).doubleClick();
-        t.checkboxFirstLineTodo.shouldNotBe(visible);
+        t.checkboxTodo(1).shouldNotBe(visible);
         t.deleteButton(1).shouldNotBe(visible);
     }
 

@@ -42,9 +42,9 @@ public class TestClearCompleted {
     @Test
     public void testButtonClearAllCompleted(){
         t.newTodo(2);
-        t.clickCheckboxSecondLineTodo();
+        t.clickCheckboxTodo(2);
         t.clickClearCopmleted();
         t.todoList.shouldHave(size(1));
-        t.firstLineTodo.shouldHave(text("New ToDo 1"));
+        t.lineTodo(1).shouldHave(text("New ToDo 1"));
     }
 }

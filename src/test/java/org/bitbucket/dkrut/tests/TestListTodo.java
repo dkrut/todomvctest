@@ -34,8 +34,7 @@ public class TestListTodo {
     @Test
     public void testChooseCompletedTodo(){
         t.newTodo(2);
-        t.clickCheckboxFirstLineTodo();
-//        t.clickCheckboxFirstLineTodo();
+        t.clickCheckboxTodo(1);
         t.clickButtonCompleted();
         t.todoListCompleted.shouldHave(size(1));
     }
@@ -44,7 +43,7 @@ public class TestListTodo {
     @Test
     public void testChooseActiveTodo(){
         t.newTodo(2);
-        t.clickCheckboxFirstLineTodo();
+        t.clickCheckboxTodo(1);
         t.clickButtonActive();
         t.todoListActive.shouldHave(size(1));
     }
@@ -52,7 +51,7 @@ public class TestListTodo {
     @Test
     public void testChooseAllTodo(){
         t.newTodo(2);
-        t.checkboxFirstLineTodo.click();
+        t.checkboxTodo(1).click();
         t.clickButtonAll();
         t.todoList.shouldHave(size(2));
     }

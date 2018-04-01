@@ -40,10 +40,10 @@ public class TestCountTodo {
     }
 
     @Test
-    public void testActiveTasksLeft(){
+    public void testActiveTodoLeft(){
         t.newTodo(3);
-        t.clickCheckboxFirstLineTodo();
-        t.clickCheckboxThirdLineTodo();
+        t.clickCheckboxTodo(1);
+        t.clickCheckboxTodo(3);
         t.todoCount.shouldHave(text("1 item left"));
     }
 }

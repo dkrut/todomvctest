@@ -35,8 +35,8 @@ public class TestAllCompletedTodo {
     public void testCheckAllTaskCompleted(){
         t.newTodo(2);
         t.clickToggleAllCompleted();
-        t.checkboxFirstLineTodo.shouldBe(selected);
-        t.checkboxSecondLineTodo.shouldBe(selected);
+        t.checkboxTodo(1).shouldBe(selected);
+        t.checkboxTodo(2).shouldBe(selected);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class TestAllCompletedTodo {
         t.newTodo(2);
         t.clickToggleAllCompleted();
         t.clickToggleAllCompleted();
-        t.checkboxFirstLineTodo.shouldNotBe(selected);
-        t.checkboxSecondLineTodo.shouldNotBe(selected);
+        t.checkboxTodo(1).shouldNotBe(selected);
+        t.checkboxTodo(2).shouldNotBe(selected);
     }
 }

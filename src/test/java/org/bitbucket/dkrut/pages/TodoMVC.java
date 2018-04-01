@@ -17,43 +17,27 @@ public class TodoMVC {
     public SelenideElement header = $(".header h1");
     public SelenideElement newTodo = $(".new-todo");
     public ElementsCollection todoList = $$(".todo-list li");
-    public ElementsCollection todoListActive = $$(".todo-list li.active");
+    public ElementsCollection todoListActive = $$(".todo-list li.active");//пустой класс("") в коде старницы
     public ElementsCollection todoListCompleted = $$(".todo-list li.completed");
     SelenideElement toggleAllCompleted =  $(By.xpath("//input[@class=\"toggle-all\"]"));
     SelenideElement buttonAll = $("[href=\"\\#\\/\"]");
     SelenideElement buttonActive = $("[href=\"\\#\\/active\"]");
     SelenideElement buttonCompleted = $("[href=\"\\#\\/completed\"]");
     public SelenideElement buttonClearCompleted = $(".clear-completed");
-    public SelenideElement firstLineTodo = $(".todo-list li:nth-child(1)");
-    public SelenideElement secondLineTodo = $(".todo-list li:nth-child(2)");
-    public SelenideElement thirdLineTodo = $(".todo-list li:nth-child(3)");
-    public SelenideElement checkboxFirstLineTodo = $(".todo-list li:nth-child(1) .toggle");
-    public SelenideElement checkboxSecondLineTodo = $(".todo-list li:nth-child(2) .toggle");
-    SelenideElement checkboxThirdLineTodo = $(".todo-list li:nth-child(3) .toggle");
-    public By deleteButtonFirstLineTodo = cssSelector(".todo-list li:nth-child(1) .destroy");
-    public By deleteButtonSecondLineTodo = cssSelector(".todo-list li:nth-child(2) .destroy");
-    public By deleteButtonThirdLineTodo = cssSelector(".todo-list li:nth-child(3) .destroy");
-    public By editFirstLineTodo = cssSelector(".todo-list li:nth-child(1) .edit");
-    public By editSecondLineTodo = cssSelector(".todo-list li:nth-child(2) .edit");
-    public By editThirdLineTodo = cssSelector(".todo-list li:nth-child(3) .edit");
     public SelenideElement todoCount = $(".todo-count");
     public SelenideElement footer = $(".footer");
 
-    public void newTodo(Integer numberOfTodo){
+    public void newTodo(int numberOfTodo){
         int i;
         for (i = 1; i <= numberOfTodo; i++) newTodo.setValue("New ToDo " + i).pressEnter();
     }
 
-    public void clickCheckboxFirstLineTodo(){
-        checkboxFirstLineTodo.click();
+    public SelenideElement checkboxTodo(int lineNumber){
+        return $(".todo-list li:nth-child(" + lineNumber + ") .toggle");
     }
 
-    public void clickCheckboxSecondLineTodo(){
-        checkboxSecondLineTodo.click();
-    }
-
-    public void clickCheckboxThirdLineTodo(){
-        checkboxThirdLineTodo.click();
+    public void clickCheckboxTodo(int todoNumber){
+        checkboxTodo(todoNumber).click();
     }
 
     public void clickToggleAllCompleted(){
@@ -77,30 +61,27 @@ public class TodoMVC {
     }
 
     public SelenideElement lineTodo(int lineNumber){
-      return  $(".todo-list li:nth-child(" + lineNumber + ")"); //вместо   public SelenideElement firstLineTodo, уже заменил в testSorting
+      return  $(".todo-list li:nth-child(" + lineNumber + ")");
     }
 
-    public void editTodoByEnter(Integer lineNumber, String newValue){
+    public void editTodoByEnter(int lineNumber, String newValue){
         lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue).pressEnter();
     }
 
-    public void editTodoByBlur(Integer lineNumber, String newValue){
+    public void editTodoByBlur(int lineNumber, String newValue){
         lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue);
         footer.click();
     }
 
-    public void cancelEditingTodo(Integer lineNumber, String newValue){
+    public void cancelEditingTodo(int lineNumber, String newValue){
         lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue).sendKeys(Keys.ESCAPE);
     }
 
-
-
-    public SelenideElement deleteButton(Integer lineNumber){ //вместо public By deleteButtonFirstLineTodo
+    public SelenideElement deleteButton(int lineNumber){ //вместо public By deleteButtonFirstLineTodo
         return $(".todo-list li:nth-child(" + lineNumber +") .destroy");
     }
 
-    public void deleteTodo(Integer lineNumber){
+    public void deleteTodo(int lineNumber){
         lineTodo(lineNumber).hover().find(".todo-list li:nth-child(" + lineNumber + ") .destroy").click();
     }
-
 }

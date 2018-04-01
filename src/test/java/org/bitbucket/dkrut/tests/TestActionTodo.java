@@ -34,29 +34,29 @@ public class TestActionTodo {
     @Test
     public void testMarkTodo(){
         t.newTodo(1);
-        t.clickCheckboxFirstLineTodo();
-        t.checkboxFirstLineTodo.shouldBe(selected);
+        t.clickCheckboxTodo(1);
+        t.checkboxTodo(1).shouldBe(selected);
     }
 
     @Test
     public void testUnmarkTodo(){
         t.newTodo(1);
-        t.clickCheckboxFirstLineTodo();
-        t.clickCheckboxFirstLineTodo();
-        t.checkboxFirstLineTodo.shouldNotBe(selected);
+        t.clickCheckboxTodo(1);
+        t.clickCheckboxTodo(1);
+        t.checkboxTodo(1).shouldNotBe(selected);
     }
 
     @Test
     public void testEditTodo(){
         t.newTodo(1);
-        t.firstLineTodo.doubleClick();
-        t.firstLineTodo.shouldNotBe(readonly);
+        t.lineTodo(1).doubleClick();
+        t.lineTodo(1).shouldNotBe(readonly);
     }
 
     @Test
     public void testShowDeleteButtonTodo(){
         t.newTodo(1);
-        t.firstLineTodo.hover();
+        t.lineTodo(1).hover();
         t.deleteButton(1).shouldBe(visible);
     }
 }
