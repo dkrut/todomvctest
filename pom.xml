@@ -16,6 +16,9 @@
         <slf4j-nop.version>1.7.25</slf4j-nop.version>
     </properties>
 
+    <name>TodoMVCTest</name>
+    <description>Test simple ToDo-list</description>
+
     <dependencies>
         <dependency>
             <groupId>com.codeborne</groupId>
@@ -60,5 +63,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
