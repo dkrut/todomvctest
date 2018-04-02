@@ -16,7 +16,7 @@ public class TodoMVC {
     public SelenideElement header = $(".header h1");
     public SelenideElement newTodo = $(".new-todo");
     public ElementsCollection todoList = $$(".todo-list li");
-    public ElementsCollection todoListActive = $$(".todo-list li.active");//пустой класс("") в коде старницы
+    public ElementsCollection todoListActive = $$(".todo-list li.active"); //empty class("") in a page code. Waiting for the class name to be added
     public ElementsCollection todoListCompleted = $$(".todo-list li.completed");
     SelenideElement toggleAllCompleted =  $(By.xpath("//input[@class=\"toggle-all\"]"));
     SelenideElement buttonAll = $("[href=\"\\#\\/\"]");
