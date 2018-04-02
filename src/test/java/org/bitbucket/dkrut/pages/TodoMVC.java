@@ -7,7 +7,6 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static org.openqa.selenium.By.cssSelector;
 
 /**
  * Created by Denis Krutikov on 31.03.2018.
