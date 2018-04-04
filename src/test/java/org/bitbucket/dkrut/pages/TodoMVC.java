@@ -76,7 +76,7 @@ public class TodoMVC {
         lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue).sendKeys(Keys.ESCAPE);
     }
 
-    public SelenideElement deleteButton(int lineNumber){ //вместо public By deleteButtonFirstLineTodo
+    public SelenideElement deleteButton(int lineNumber){
         return $(".todo-list li:nth-child(" + lineNumber +") .destroy");
     }
 
