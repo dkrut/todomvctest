@@ -13,18 +13,18 @@ public class TestAllCompletedTodo extends Settings {
 
     @Test
     public void testCheckAllTodoCompleted(){
-        t.newTodo(2);
-        t.clickToggleAllCompleted();
-        t.checkboxTodo(1).shouldBe(selected);
-        t.checkboxTodo(2).shouldBe(selected);
+        todo.newTodo(2);
+        todo.clickToggleAllCompleted();
+        todo.checkboxTodo(1).shouldBe(selected);
+        todo.checkboxTodo(2).shouldBe(selected);
     }
 
     @Test
     public void testUncheckAllTodoCompleted(){
-        t.newTodo(2);
-        t.clickToggleAllCompleted();
-        t.clickToggleAllCompleted();
-        t.checkboxTodo(1).shouldNotBe(selected);
-        t.checkboxTodo(2).shouldNotBe(selected);
+        todo.newTodo(2);
+        todo.clickToggleAllCompleted();
+        todo.clickToggleAllCompleted();
+        todo.checkboxTodo(1).shouldNotBe(selected);
+        todo.checkboxTodo(2).shouldNotBe(selected);
     }
 }

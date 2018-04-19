@@ -13,21 +13,21 @@ public class TestOpenCleanPageInterface extends Settings {
 
     @Test
     public void testPlaceholderText(){
-        t.newTodo.shouldHave(attribute("placeholder","What needs to be done?"));
+        todo.newTodo.shouldHave(attribute("placeholder","What needs to be done?"));
     }
 
     @Test
     public void testFocusAtTheLine(){
-        t.newTodo.shouldBe(focused);
+        todo.newTodo.shouldBe(focused);
     }
 
     @Test
     public void testHeader(){
-        t.header.shouldHave(text("todos"));
+        todo.header.shouldHave(text("todos"));
     }
 
     @Test
     public void testFooter(){
-        t.footer.shouldNotBe(visible);
+        todo.footer.shouldNotBe(visible);
     }
 }

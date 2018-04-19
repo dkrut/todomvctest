@@ -13,15 +13,15 @@ public class TestCountTodo extends Settings {
 
     @Test
     public void testCountNewTodo(){
-        t.newTodo(1);
-        t.todoCount.shouldHave(text("1 item left"));
+        todo.newTodo(1);
+        todo.todoCount.shouldHave(text("1 item left"));
     }
 
     @Test
     public void testActiveTodoLeft(){
-        t.newTodo(3);
-        t.clickCheckboxTodo(1);
-        t.clickCheckboxTodo(3);
-        t.todoCount.shouldHave(text("1 item left"));
+        todo.newTodo(3);
+        todo.clickCheckboxTodo(1);
+        todo.clickCheckboxTodo(3);
+        todo.todoCount.shouldHave(text("1 item left"));
     }
 }

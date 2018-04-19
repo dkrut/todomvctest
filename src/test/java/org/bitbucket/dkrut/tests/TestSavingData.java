@@ -14,16 +14,16 @@ public class TestSavingData extends Settings {
 
     @Test
     public void testRefreshPage(){
-        t.newTodo(1);
+        todo.newTodo(1);
         refresh();
-        t.todoList.shouldHave(size(1));
+        todo.todoList.shouldHave(size(1));
     }
 
     @Test
     public void testOpenInNewTab(){
-        t.newTodo(1);
+        todo.newTodo(1);
         executeJavaScript("window.open('http://todomvc.com/examples/backbone/','_blank')");
         switchTo().window(1);
-        t.todoList.shouldHave(size(1));
+        todo.todoList.shouldHave(size(1));
     }
 }

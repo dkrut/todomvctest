@@ -15,16 +15,16 @@ public class TestClearCompleted extends Settings {
 
     @Test
     public void testUnvisibleClearCompleted(){
-        t.newTodo(1);
-        t.buttonClearCompleted.shouldNot(visible);
+        todo.newTodo(1);
+        todo.buttonClearCompleted.shouldNot(visible);
     }
 
     @Test
     public void testButtonClearAllCompleted(){
-        t.newTodo(2);
-        t.clickCheckboxTodo(2);
-        t.clickClearCopmleted();
-        t.todoList.shouldHave(size(1));
-        t.lineTodo(1).shouldHave(text("New ToDo 1"));
+        todo.newTodo(2);
+        todo.clickCheckboxTodo(2);
+        todo.clickClearCopmleted();
+        todo.todoList.shouldHave(size(1));
+        todo.lineTodo(1).shouldHave(text("New ToDo 1"));
     }
 }

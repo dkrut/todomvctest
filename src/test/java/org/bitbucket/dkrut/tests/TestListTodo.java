@@ -14,26 +14,26 @@ public class TestListTodo extends Settings {
 
     @Test
     public void testChooseCompletedTodo(){
-        t.newTodo(2);
-        t.clickCheckboxTodo(1);
-        t.clickButtonCompleted();
-        t.todoListCompleted.shouldHave(size(1));
+        todo.newTodo(2);
+        todo.clickCheckboxTodo(1);
+        todo.clickButtonCompleted();
+        todo.todoListCompleted.shouldHave(size(1));
     }
 
     @Ignore("Test needs to edit cause empty selector for todoListActive")
     @Test
     public void testChooseActiveTodo(){
-        t.newTodo(2);
-        t.clickCheckboxTodo(1);
-        t.clickButtonActive();
-        t.todoListActive.shouldHave(size(1));
+        todo.newTodo(2);
+        todo.clickCheckboxTodo(1);
+        todo.clickButtonActive();
+        todo.todoListActive.shouldHave(size(1));
     }
 
     @Test
     public void testChooseAllTodo(){
-        t.newTodo(2);
-        t.checkboxTodo(1).click();
-        t.clickButtonAll();
-        t.todoList.shouldHave(size(2));
+        todo.newTodo(2);
+        todo.checkboxTodo(1).click();
+        todo.clickButtonAll();
+        todo.todoList.shouldHave(size(2));
     }
 }

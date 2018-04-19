@@ -13,30 +13,30 @@ public class TestActionTodo extends Settings {
 
     @Test
     public void testMarkTodo(){
-        t.newTodo(1);
-        t.clickCheckboxTodo(1);
-        t.checkboxTodo(1).shouldBe(selected);
+        todo.newTodo(1);
+        todo.clickCheckboxTodo(1);
+        todo.checkboxTodo(1).shouldBe(selected);
     }
 
     @Test
     public void testUnmarkTodo(){
-        t.newTodo(1);
-        t.clickCheckboxTodo(1);
-        t.clickCheckboxTodo(1);
-        t.checkboxTodo(1).shouldNotBe(selected);
+        todo.newTodo(1);
+        todo.clickCheckboxTodo(1);
+        todo.clickCheckboxTodo(1);
+        todo.checkboxTodo(1).shouldNotBe(selected);
     }
 
     @Test
     public void testEditTodo(){
-        t.newTodo(1);
-        t.lineTodo(1).doubleClick();
-        t.lineTodo(1).shouldNotBe(readonly);
+        todo.newTodo(1);
+        todo.lineTodo(1).doubleClick();
+        todo.lineTodo(1).shouldNotBe(readonly);
     }
 
     @Test
     public void testShowDeleteButtonTodo(){
-        t.newTodo(1);
-        t.lineTodo(1).hover();
-        t.deleteButton(1).shouldBe(visible);
+        todo.newTodo(1);
+        todo.lineTodo(1).hover();
+        todo.deleteButton(1).shouldBe(visible);
     }
 }

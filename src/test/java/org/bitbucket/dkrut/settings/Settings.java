@@ -13,13 +13,13 @@ import static com.codeborne.selenide.Selenide.open;
  */
 
 public class Settings {
-    protected TodoMVC t;
+    protected TodoMVC todo;
 
     @Before
     public void setUp(){
         Configuration.browser = "chrome";
         Configuration.reportsFolder = "target/reports/screenshots";
-        t = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
+        todo = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
     }
 
     @After
