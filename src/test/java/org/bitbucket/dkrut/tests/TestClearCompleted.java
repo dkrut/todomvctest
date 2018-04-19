@@ -23,7 +23,7 @@ public class TestClearCompleted extends Settings {
     public void testButtonClearAllCompleted(){
         todo.newTodo(2);
         todo.clickCheckboxTodo(2);
-        todo.clickClearCopmleted();
+        todo.clickClearCompleted();
         todo.todoList.shouldHave(size(1));
         todo.lineTodo(1).shouldHave(text("New ToDo 1"));
     }

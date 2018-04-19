@@ -55,7 +55,7 @@ public class TodoMVC {
         buttonAll.click();
     }
 
-    public void clickClearCopmleted(){
+    public void clickClearCompleted(){
         buttonClearCompleted.click();
     }
 
@@ -63,12 +63,18 @@ public class TodoMVC {
       return  $(".todo-list li:nth-child(" + lineNumber + ")");
     }
 
+    private SelenideElement editTodo(int lineNumber){
+        return $(".todo-list li:nth-child(" + lineNumber + ") .edit");
+    }
+
     public void editTodoByEnter(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue).pressEnter();
+        lineTodo(lineNumber).doubleClick();
+        editTodo(lineNumber).setValue(newValue).pressEnter();
     }
 
     public void editTodoByBlur(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue);
+        lineTodo(lineNumber).doubleClick();
+        editTodo(lineNumber).setValue(newValue);
         footer.click();
     }
 
@@ -81,6 +87,7 @@ public class TodoMVC {
     }
 
     public void deleteTodo(int lineNumber){
-        lineTodo(lineNumber).hover().find(".todo-list li:nth-child(" + lineNumber + ") .destroy").click();
+        lineTodo(lineNumber).hover();
+        deleteButton(lineNumber).click();
     }
 }
