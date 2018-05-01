@@ -63,18 +63,17 @@ public class TodoMVC {
       return  $(".todo-list li:nth-child(" + lineNumber + ")");
     }
 
-    private SelenideElement editTodo(int lineNumber){
-        return $(".todo-list li:nth-child(" + lineNumber + ") .edit");
+    private SelenideElement editTodo(int lineNumber, String newValue){
+        lineTodo(lineNumber).doubleClick();
+        return $(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue);
     }
 
     public void editTodoByEnter(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick();
-        editTodo(lineNumber).setValue(newValue).pressEnter();
+        editTodo(lineNumber, newValue).pressEnter();
     }
 
     public void editTodoByBlur(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick();
-        editTodo(lineNumber).setValue(newValue);
+        editTodo(lineNumber, newValue);
         footer.click();
     }
 
