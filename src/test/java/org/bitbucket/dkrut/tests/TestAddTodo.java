@@ -30,7 +30,7 @@ public class TestAddTodo extends Settings {
     @Test
     public void testSorting(){ //new Todo shoulbe added at the end of list
         todo.newTodo(2);
-        todo.lineTodo(1).shouldHave(text("New ToDo 1"));
-        todo.lineTodo(2).shouldHave(text("New ToDo 2"));
+        todo.lineTodo(1).shouldHave(text(todo.nameTodo(1)));
+        todo.lineTodo(2).shouldHave(text(todo.nameTodo(2)));
     }
 }

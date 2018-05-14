@@ -31,6 +31,11 @@ public class TodoMVC {
         for (i = 1; i <= numberOfTodo; i++) newTodo.setValue("New ToDo " + i).pressEnter();
     }
 
+    public String nameTodo(int lineNumber){
+        String name = "New Todo " + lineNumber;
+        return name;
+    }
+
     public SelenideElement checkboxTodo(int lineNumber){
         return $(".todo-list li:nth-child(" + lineNumber + ") .toggle");
     }
