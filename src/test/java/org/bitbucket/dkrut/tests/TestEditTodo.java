@@ -15,16 +15,18 @@ public class TestEditTodo extends Settings {
 
     @Test
     public void testEditTodoByEnter(){
+        String newValue = "Edited task";
         todo.newTodo(1);
-        todo.editTodoByEnter(1,"Edited task");
-        todo.lineTodo(1).shouldHave(text("Edited task"));
+        todo.editTodoByEnter(1,newValue);
+        todo.lineTodo(1).shouldHave(text(newValue));
     }
 
     @Test
     public void testEditTodoByBlur(){
+        String newValue = "Edited task";
         todo.newTodo(1);
-        todo.editTodoByBlur(1,"Edited task");
-        todo.lineTodo(1).shouldHave(text("Edited task"));
+        todo.editTodoByBlur(1,newValue);
+        todo.lineTodo(1).shouldHave(text(newValue));
     }
 
     @Test
