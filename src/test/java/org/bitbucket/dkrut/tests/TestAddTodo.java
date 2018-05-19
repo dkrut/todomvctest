@@ -14,9 +14,9 @@ public class TestAddTodo extends Settings {
 
     @Test
     public void testAddFewTodo(){
-        int todo = 2;
-        this.todo.newTodo(todo);
-        this.todo.todoList.shouldHave(size(todo));
+        int count = 2;
+        todo.newTodo(count);
+        todo.todoList.shouldHave(size(count));
     }
 
     @Test
