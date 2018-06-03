@@ -8,16 +8,18 @@
     <artifactId>todomvctest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <selenide.version>4.11.4</selenide.version>
-        <junit.version>4.12</junit.version>
-        <slf4j-nop.version>1.7.25</slf4j-nop.version>
-    </properties>
-
     <name>TodoMVCTest</name>
     <description>Test simple ToDo-list</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <selenide.version>4.11.4</selenide.version>
+        <junit.version>4.12</junit.version>
+        <slf4j-simple.version>1.7.25</slf4j-simple.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -33,8 +35,8 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>${slf4j-nop.version}</version>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -44,23 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-junit47</artifactId>
-                        <version>2.21.0</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
+                <version>${maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>
