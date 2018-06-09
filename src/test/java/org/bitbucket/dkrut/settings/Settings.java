@@ -1,6 +1,8 @@
 package org.bitbucket.dkrut.settings;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.bitbucket.dkrut.pages.TodoMVC;
 import org.junit.After;
 import org.junit.Before;
@@ -17,14 +19,14 @@ public class Settings {
 
     @Before
     public void setUp(){
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.browser = "chrome";
-        Configuration.reportsFolder = "target/reports/screenshots";
+        Configuration.reportsFolder = "target/screenshots";
         todo = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
     }
 
     @After
     public void clearTasks(){
-//        clearBrowserCookies();
         clearBrowserLocalStorage();
     }
 }
