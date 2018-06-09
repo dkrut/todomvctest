@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Condition.visible;
  * Created by Denis Krutikov on 01.04.2018.
  */
 
-@Feature(value = "Edit todo")
-@Owner(value = "Denis Krutikov")
+@Feature("Edit todo")
+@Owner("Denis Krutikov")
 public class TestEditTodo extends Settings {
 
     @Test
-    @DisplayName(value = "Apply changes by enter")
-    @Description(value = "Test applying changes by enter")
-    @Severity(value = SeverityLevel.CRITICAL)
+    @DisplayName("Apply changes by enter")
+    @Description("Test applying changes by enter")
+    @Severity(SeverityLevel.CRITICAL)
     public void testEditTodoByEnter(){
         String newValue = "Edited task";
         todo.newTodo(1);
@@ -29,8 +29,8 @@ public class TestEditTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Apply changes by blur")
-    @Description(value = "Test applying changes by blur")
+    @DisplayName("Apply changes by blur")
+    @Description("Test applying changes by blur")
     public void testEditTodoByBlur(){
         String newValue = "Edited task";
         todo.newTodo(1);
@@ -39,8 +39,8 @@ public class TestEditTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Cancel editing todo")
-    @Description(value = "Test cancel editing todo")
+    @DisplayName("Cancel editing todo")
+    @Description("Test cancel editing todo")
     public void testCancelEditingTodo(){
         todo.newTodo(1);
         todo.cancelEditingTodo(1, "Edited task");
@@ -48,16 +48,16 @@ public class TestEditTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Removing spaces")
-    @Description(value = "Test removing spaces before and after todo")
+    @DisplayName("Removing spaces")
+    @Description("Test removing spaces before and after todo")
     public void testTrimTextTodo(){
         todo.newTodo.setValue(" Space before and after ").pressEnter();
         todo.lineTodo(1).shouldHave(text("Space before and after"));
     }
 
     @Test
-    @DisplayName(value = "Autodeleting empty todo")
-    @Description(value = "Test deleting empty todo after editing")
+    @DisplayName("Autodeleting empty todo")
+    @Description("Test deleting empty todo after editing")
     public void testDeleteEmptyTodo(){
         todo.newTodo(2);
         todo.editTodoByEnter(2,"");
@@ -65,8 +65,8 @@ public class TestEditTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Hide controls")
-    @Description(value = "Test hide controls while editing")
+    @DisplayName("Hide controls")
+    @Description("Test hide controls while editing")
     public void testHideControlsWhileEditing(){
         todo.newTodo(1);
         todo.lineTodo(1).doubleClick();
@@ -75,8 +75,8 @@ public class TestEditTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Delete todo")
-    @Description(value = "Test deleting todo")
+    @DisplayName("Delete todo")
+    @Description("Test deleting todo")
     public void testDeleteTodo(){
         todo.newTodo(2);
         todo.deleteTodo(2);

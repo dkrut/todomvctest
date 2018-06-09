@@ -13,21 +13,21 @@ import static com.codeborne.selenide.Condition.text;
  * Created by Denis Krutikov on 01.04.2018.
  */
 
-@Feature(value = "Count todo")
-@Owner(value = "Denis Krutikov")
+@Feature("Count todo")
+@Owner("Denis Krutikov")
 public class TestCountTodo extends Settings {
 
     @Test
-    @DisplayName(value = "Count new todo")
-    @Description(value = "Test count added todo")
+    @DisplayName("Count new todo")
+    @Description("Test count added todo")
     public void testCountNewTodo(){
         todo.newTodo(1);
         todo.todoCount.shouldHave(text("1 item left"));
     }
 
     @Test
-    @DisplayName(value = "Count uncompleted todo")
-    @Description(value = "Test count uncompleted todo")
+    @DisplayName("Count uncompleted todo")
+    @Description("Test count uncompleted todo")
     public void testActiveTodoLeft(){
         todo.newTodo(3);
         todo.clickCheckboxTodo(1);

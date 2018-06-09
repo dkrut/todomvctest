@@ -14,13 +14,13 @@ import static com.codeborne.selenide.Selenide.*;
  * Created by Denis Krutikov on 01.04.2018.
  */
 
-@Feature(value = "Saving data")
-@Owner(value = "Denis Krutikov")
+@Feature("Saving data")
+@Owner("Denis Krutikov")
 public class TestSavingData extends Settings {
 
     @Test
-    @DisplayName(value = "Refresh page")
-    @Description(value = "Test refreshing page - data shouldn't lost after it")
+    @DisplayName("Refresh page")
+    @Description("Test refreshing page - data shouldn't lost after it")
     public void testRefreshPage(){
         todo.newTodo(1);
         refresh();
@@ -28,8 +28,8 @@ public class TestSavingData extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Open in a new tab")
-    @Description(value = "Test opening page in a new tab - data shouldn't lost after it")
+    @DisplayName("Open in a new tab")
+    @Description("Test opening page in a new tab - data shouldn't lost after it")
     public void testOpenInNewTab(){
         todo.newTodo(1);
         executeJavaScript("window.open('http://todomvc.com/examples/backbone/','_blank')");

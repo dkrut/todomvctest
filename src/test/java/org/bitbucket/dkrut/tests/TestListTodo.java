@@ -14,13 +14,13 @@ import static com.codeborne.selenide.CollectionCondition.size;
  * Created by Denis Krutikov on 01.04.2018.
  */
 
-@Feature(value = "Different todo lists")
-@Owner(value = "Denis Krutikov")
+@Feature("Different todo lists")
+@Owner("Denis Krutikov")
 public class TestListTodo extends Settings {
 
     @Test
-    @DisplayName(value = "Choose completed todo")
-    @Description(value = "Test click button completed - show list completed todo")
+    @DisplayName("Choose completed todo")
+    @Description("Test click button completed - show list completed todo")
     public void testChooseCompletedTodo(){
         todo.newTodo(2);
         todo.clickCheckboxTodo(1);
@@ -30,8 +30,8 @@ public class TestListTodo extends Settings {
 
     @Ignore("Test needs to edit cause empty selector for todoListActive")
     @Test
-    @DisplayName(value = "Choose active todo")
-    @Description(value = "Test click button active - show list active todo")
+    @DisplayName("Choose active todo")
+    @Description("Test click button active - show list active todo")
     public void testChooseActiveTodo(){
         todo.newTodo(2);
         todo.clickCheckboxTodo(1);
@@ -40,8 +40,8 @@ public class TestListTodo extends Settings {
     }
 
     @Test
-    @DisplayName(value = "Choose all todo")
-    @Description(value = "Test click button all - show list all todo")
+    @DisplayName("Choose all todo")
+    @Description("Test click button all - show list all todo")
     public void testChooseAllTodo(){
         todo.newTodo(2);
         todo.checkboxTodo(1).click();
