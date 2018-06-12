@@ -1,4 +1,4 @@
-#Test TodoMVC: Maven + Selenide + Junit#
+#Test TodoMVC: Maven + Selenide + Junit + Allure#
 
 Test simple ToDo-list.
 
@@ -10,9 +10,17 @@ To run TodoMVC tests, just type from command line:
 mvn clean test
 `
 
-or you can run *TodoTestSuites.class*
+Then, to get Allure-report, type from command line:
+
+`
+mvn allure:serve
+`
+
+Also to run TodoMVC tests you can run *TodoTestSuites.class*
 
 
 ### Links ###
-* [todoMVC](http://todomvc.com/examples/backbone/)
+* [TodoMVC](http://todomvc.com/examples/backbone/)
 * [Selenide](http://ru.selenide.org/)
+* [Allure](https://github.com/allure-framework/allure2)
+* [Junit](https://junit.org/junit4/)
