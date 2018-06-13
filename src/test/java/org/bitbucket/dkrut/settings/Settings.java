@@ -21,7 +21,7 @@ public class Settings {
     public void setUp(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.browser = "chrome";
-//        Configuration.reportsFolder = "target/screenshots";
+        Configuration.reportsFolder = "target/screenshots";
         todo = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
     }
 
