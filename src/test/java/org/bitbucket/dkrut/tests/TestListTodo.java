@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -16,7 +15,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 
 @Feature("Different todo lists")
 @Owner("Denis Krutikov")
-public class TestListTodo extends Settings {
+public class TestListTodo extends TestBase {
 
     @Test
     @DisplayName("Choose completed todo")

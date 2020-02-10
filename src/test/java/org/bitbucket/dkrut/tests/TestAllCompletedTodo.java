@@ -2,7 +2,6 @@ package org.bitbucket.dkrut.tests;
 
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.selected;
@@ -13,7 +12,7 @@ import static com.codeborne.selenide.Condition.selected;
 
 @Feature("Complete todo")
 @Owner("Denis Krutikov")
-public class TestAllCompletedTodo extends Settings {
+public class TestAllCompletedTodo extends TestBase {
 
     @Test
     @DisplayName("Check all todo completed")

@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -16,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 @Feature("Saving data")
 @Owner("Denis Krutikov")
-public class TestSavingData extends Settings {
+public class TestSavingData extends TestBase {
 
     @Test
     @DisplayName("Refresh page")

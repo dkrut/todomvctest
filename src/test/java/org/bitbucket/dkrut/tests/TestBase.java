@@ -1,4 +1,4 @@
-package org.bitbucket.dkrut.settings;
+package org.bitbucket.dkrut.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
  * Created by Denis Krutikov on 02.04.2018.
  */
 
-public class Settings {
+public abstract class TestBase {
     protected TodoMVC todo;
 
     @Before

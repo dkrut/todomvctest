@@ -2,7 +2,6 @@ package org.bitbucket.dkrut.tests;
 
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -13,7 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 
 @Feature("Default interface")
 @Owner("Denis Krutikov")
-public class TestOpenCleanPageInterface extends Settings {
+public class TestOpenCleanPageInterface extends TestBase {
 
     @Test
     @DisplayName("Placeholder text")

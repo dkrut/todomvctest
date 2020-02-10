@@ -2,7 +2,6 @@ package org.bitbucket.dkrut.tests;
 
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -15,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 
 @Feature("Edit todo")
 @Owner("Denis Krutikov")
-public class TestEditTodo extends Settings {
+public class TestEditTodo extends TestBase {
 
     @Test
     @DisplayName("Apply changes by enter")

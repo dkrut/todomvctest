@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,7 +14,7 @@ import static com.codeborne.selenide.Condition.text;
 
 @Feature("Count todo")
 @Owner("Denis Krutikov")
-public class TestCountTodo extends Settings {
+public class TestCountTodo extends TestBase {
 
     @Test
     @DisplayName("Count new todo")

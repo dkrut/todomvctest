@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.junit4.DisplayName;
-import org.bitbucket.dkrut.settings.Settings;
 import org.junit.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -17,7 +16,7 @@ import static com.codeborne.selenide.Condition.visible;
 
 @Feature("Clear completed")
 @Owner("Denis Krutikov")
-public class TestClearCompleted extends Settings {
+public class TestClearCompleted extends TestBase {
 
     @Test
     @DisplayName("Clear completed button status")
