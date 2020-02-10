@@ -4,8 +4,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.bitbucket.dkrut.pages.TodoMVC;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
 
 import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static com.codeborne.selenide.Selenide.open;
@@ -17,7 +18,7 @@ import static com.codeborne.selenide.Selenide.open;
 public abstract class TestBase {
     protected TodoMVC todo;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.browser = "chrome";
@@ -25,7 +26,7 @@ public abstract class TestBase {
         todo = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
     }
 
-    @After
+    @AfterEach
     public void clearTasks(){
         clearBrowserLocalStorage();
     }

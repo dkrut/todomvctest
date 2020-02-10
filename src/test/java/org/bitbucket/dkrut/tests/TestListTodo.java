@@ -3,9 +3,9 @@ package org.bitbucket.dkrut.tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 
@@ -27,7 +27,7 @@ public class TestListTodo extends TestBase {
         todo.todoListCompleted.shouldHave(size(1));
     }
 
-    @Ignore("Test needs to edit cause empty selector for todoListActive")
+    @Disabled("Test needs to edit cause empty selector for todoListActive")
     @Test
     @DisplayName("Choose active todo")
     @Description("Test click button active - show list active todo")
