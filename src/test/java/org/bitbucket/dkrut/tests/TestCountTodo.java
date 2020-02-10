@@ -29,9 +29,11 @@ public class TestCountTodo extends Settings {
     @DisplayName("Count uncompleted todo")
     @Description("Test count uncompleted todo")
     public void testActiveTodoLeft(){
-        todo.newTodo(3);
-        todo.clickCheckboxTodo(1);
-        todo.clickCheckboxTodo(3);
-        todo.todoCount.shouldHave(text("1 item left"));
+        int needTodo = 3;
+        int[] todoLineToClick = {1,3};
+        todo.newTodo(needTodo);
+        todo.clickCheckboxTodo(todoLineToClick[0]);
+        todo.clickCheckboxTodo(todoLineToClick[1]);
+        todo.todoCount.shouldHave(text(needTodo-todoLineToClick.length + " item left"));
     }
 }

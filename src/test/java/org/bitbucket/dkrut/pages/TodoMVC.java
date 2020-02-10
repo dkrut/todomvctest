@@ -1,12 +1,12 @@
 package org.bitbucket.dkrut.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 /**
  * Created by Denis Krutikov on 31.03.2018.
@@ -18,7 +18,7 @@ public class TodoMVC {
     public ElementsCollection todoList = $$(".todo-list li");
     public ElementsCollection todoListActive = $$(".todo-list li.active"); //empty class("") in a page code. Waiting for the class name to be added
     public ElementsCollection todoListCompleted = $$(".todo-list li.completed");
-    SelenideElement toggleAllCompleted =  $(By.xpath("//input[@class=\"toggle-all\"]"));
+    SelenideElement toggleAllCompleted =  $(By.xpath("//*[@class=\"main\"]/label"));
     SelenideElement buttonAll = $("[href=\"\\#\\/\"]");
     SelenideElement buttonActive = $("[href=\"\\#\\/active\"]");
     SelenideElement buttonCompleted = $("[href=\"\\#\\/completed\"]");
@@ -27,13 +27,11 @@ public class TodoMVC {
     public SelenideElement footer = $(".footer");
 
     public void newTodo(int numberOfTodo){
-        int i;
-        for (i = 1; i <= numberOfTodo; i++) newTodo.setValue("New ToDo " + i).pressEnter();
+        for (int i = 1; i <= numberOfTodo; i++) newTodo.setValue("New ToDo " + i).pressEnter();
     }
 
     public String nameTodo(int lineNumber){
-        String name = "New Todo " + lineNumber;
-        return name;
+        return "New Todo " + lineNumber;
     }
 
     public SelenideElement checkboxTodo(int lineNumber){
@@ -69,8 +67,9 @@ public class TodoMVC {
     }
 
     private SelenideElement editTodo(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick();
-        return $(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue);
+        lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.BACK_SPACE));
+        $(".todo-list li:nth-child(" + lineNumber + ") .edit").sendKeys(newValue);
+        return $(".todo-list li:nth-child(" + lineNumber + ") .edit").shouldBe(Condition.exist);
     }
 
     public void editTodoByEnter(int lineNumber, String newValue){
@@ -83,7 +82,9 @@ public class TodoMVC {
     }
 
     public void cancelEditingTodo(int lineNumber, String newValue){
-        lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").setValue(newValue).sendKeys(Keys.ESCAPE);
+        lineTodo(lineNumber).doubleClick().find(".todo-list li:nth-child(" + lineNumber + ") .edit").sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.BACK_SPACE));
+        $(".todo-list li:nth-child(" + lineNumber + ") .edit").sendKeys(newValue);
+        $(".todo-list li:nth-child(" + lineNumber + ") .edit").sendKeys(Keys.ESCAPE);
     }
 
     public SelenideElement deleteButton(int lineNumber){
