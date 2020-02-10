@@ -19,7 +19,7 @@ public abstract class TestBase {
 
     @Before
     public void setUp(){
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.browser = "chrome";
         Configuration.reportsFolder = "target/screenshots";
         todo = open("http://todomvc.com/examples/backbone/", TodoMVC.class);
