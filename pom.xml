@@ -15,16 +15,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-        <selenide.version>4.11.4</selenide.version>
-        <junit.version>4.12</junit.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <selenide.version>5.7.0</selenide.version>
+        <junit.version>4.13</junit.version>
         <slf4j-simple.version>1.7.25</slf4j-simple.version>
-        <jaxb-api.version>2.3.0</jaxb-api.version>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
         <aspectj.version>1.9.0</aspectj.version>
-        <allure-junit4.version>2.6.0</allure-junit4.version>
-        <allure-selenide.version>2.6.0</allure-selenide.version>
+        <allure-junit4.version>2.9.0</allure-junit4.version>
+        <allure-selenide.version>2.13.1</allure-selenide.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+        <allure.reports.directory>${project.build.directory}/allure-reports</allure.reports.directory>
     </properties>
 
     <dependencies>
@@ -126,11 +127,10 @@
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.6.0</reportVersion>
+                    <resultsDirectory>${allure.results.directory}</resultsDirectory>
+                    <reportDirectory>${allure.reports.directory}</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <reporting>
-        <outputDirectory>${allure.results.directory}</outputDirectory>
-    </reporting>
 </project>
