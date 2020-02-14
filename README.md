@@ -23,4 +23,4 @@ Also to run TodoMVC tests you can run *TodoTestSuites.class*
 * [TodoMVC](http://todomvc.com/examples/backbone/)
 * [Selenide](http://ru.selenide.org/)
 * [Allure](https://github.com/allure-framework/allure2)
-* [Junit](https://junit.org/junit4/)
+* [JUnit5](https://junit.org/junit5/)
