@@ -17,8 +17,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <slf4j-simple.version>1.7.30</slf4j-simple.version>
         <selenide.version>5.7.0</selenide.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <allure-junit5.version>2.13.1</allure-junit5.version>
         <junit.api.version>5.6.0</junit.api.version>
         <junit.jupiter.version>5.6.0</junit.jupiter.version>
         <allure-selenide.version>2.13.1</allure-selenide.version>
@@ -29,6 +31,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
@@ -37,6 +45,12 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>${allure-selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allure-junit5.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
