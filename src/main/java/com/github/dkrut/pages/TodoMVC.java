@@ -1,4 +1,4 @@
-package org.bitbucket.dkrut.pages;
+package com.github.dkrut.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;

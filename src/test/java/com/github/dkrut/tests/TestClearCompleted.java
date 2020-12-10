@@ -1,4 +1,4 @@
-package org.bitbucket.dkrut.tests;
+package com.github.dkrut.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;

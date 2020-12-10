@@ -1,9 +1,9 @@
-package org.bitbucket.dkrut.tests;
+package com.github.dkrut.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.bitbucket.dkrut.pages.TodoMVC;
+import com.github.dkrut.pages.TodoMVC;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
